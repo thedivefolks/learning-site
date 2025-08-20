@@ -1,2 +1,2 @@
 # learning-site
-divefolks website
+this if for leaning how to use git for my website divefolks 
