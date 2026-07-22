@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Something exciting is coming soon.">
+  <meta name="theme-color" content="#0b1020">
+  <title>Coming Soon</title>
+
+  <style>
+    :root {
+      --background: #080c18;
+      --surface: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.14);
+      --text: #f7f8fc;
+      --muted: #b7bfd3;
+      --accent: #a9c7ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: 24px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(73, 113, 255, 0.28), transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(130, 82, 255, 0.24), transparent 35%),
+        var(--background);
+    }
+
+    .glow {
+      position: fixed;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: rgba(121, 153, 255, 0.2);
+      filter: blur(90px);
+      animation: float 7s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .glow-one {
+      top: -100px;
+      right: -70px;
+    }
+
+    .glow-two {
+      bottom: -130px;
+      left: -90px;
+      animation-delay: -3.5s;
+    }
+
+    main {
+      position: relative;
+      width: min(720px, 100%);
+      padding: clamp(36px, 7vw, 72px);
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: var(--surface);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 24px;
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 14px var(--accent);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    h1 {
+      font-size: clamp(3.4rem, 11vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+    }
+
+    p {
+      max-width: 510px;
+      margin: 26px auto 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.4vw, 1.2rem);
+      line-height: 1.7;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 24px;
+      color: rgba(255, 255, 255, 0.42);
+      font-size: 0.82rem;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.45; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(22px, -18px, 0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="glow glow-one" aria-hidden="true"></div>
+  <div class="glow glow-two" aria-hidden="true"></div>
+
+  <main>
+    <div class="eyebrow">
+      <span class="dot" aria-hidden="true"></span>
+      Work in progress
+    </div>
+
+    <h1>Coming<br>Soon.</h1>
+
+    <p>
+      We are creating something worth waiting for. Please check back shortly.
+    </p>
+  </main>
+
+  <footer>&copy; <span id="year"></span> All rights reserved.</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
